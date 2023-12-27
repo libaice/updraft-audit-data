@@ -53,3 +53,37 @@ One could encrypt the password off-chain, and then store the encrypted password 
 This would require the user to remember another password off-chain to decrypt the stored password . 
 
 However you're also likely to remove the view function as you wouldn't want the user to accidentally send a transaction with the decryption key .
+
+
+
+### [H-2] `PasswordStore::setPassword` has no access controls, meaning a non-owner could change the password
+
+**Description:** 
+
+ The `PasswordStore::setPassword` function is set to be an `external` function, however the purpose of the smart contract and function's natspec indicate that `This function allows only the owner to set a new password.`
+
+```js
+function setPassword(string memory newPassword) external {
+    // @Audit - There are no Access Controls.
+    s_password = newPassword;
+    emit SetNewPassword();
+}
+```
+
+
+
+**Impact:** 
+
+Anyone can set/change the stored password, severely breaking the contract's intended functionality
+
+
+
+**Proof of Concept:**
+
+**Recommended Mitigation:** 
+
+
+
+
+
+### [H-3] The `PasswordStore::getPassword` natspec indicates a parameter that doesn't exist, causing the natspec to be incorrect

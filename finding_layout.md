@@ -1,5 +1,17 @@
 ### [S-#] TITLE (Root Cause + Impact)
 
+**Description:** 
+
+**Impact:** 
+
+**Proof of Concept:**
+
+**Recommended Mitigation:** 
+
+---
+
+
+
 ### The Write-Up Structure
 
 1. **Title**: A title should be succinct and clear. A best practice is to adhere to the `Root Cause + Impact` rule of thumb.
